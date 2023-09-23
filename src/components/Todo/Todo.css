@@ -1,0 +1,48 @@
+.card {
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: auto;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.card .title {
+  margin-bottom: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  font-size: 18px;
+}
+.actions div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.actions button {
+  padding: 5px 8px;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+}
+.actions button:hover {
+  box-shadow: #222 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.trash-btn {
+  border: none !important;
+  font-size: 18px !important;
+  box-shadow: none !important;
+  color: rgb(89, 26, 148);
+}

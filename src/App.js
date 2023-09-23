@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Todo from "./components/Todo/Todo";
 
 function App() {
+  const [todosData, setTodoData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())
+      .then(res => setTodoData(res))
+      .catch(error => console.error("Error fetching data:", error));
+  }, []);
+
+  function confirmModal(id) {
+    setTodoData(todosData.filter((item) => item.id !== id))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="todos">My Todos</h1>
+
+      <div className="todosBody">
+        {todosData.map(todo => (
+          <Todo key={todo.id} data={todo} confirmModal={confirmModal} />
+        ))}
+      </div>
     </div>
   );
 }
