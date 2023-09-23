@@ -39,7 +39,7 @@ body {
   padding: 10px;
   background: #f0e7f0c9;
   border-radius: 15px;
-  width: 40%;
+  min-width: 40%;
   height: 150px;
   display: flex;
   justify-content: space-between;
@@ -64,3 +64,10 @@ body {
   box-shadow: #222 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 /* ============================ */
+
+/* =======responsive========= */
+@media only screen and (max-width: 768px) {
+  .backDrop .popUp {
+    width: 90%;
+  }
+}
