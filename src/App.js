@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from "react";
-import Todo from "./components/Todo/Todo";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import CompletedTodo from "./pages/CompletedTodo/completed-todo";
 
 function App() {
-  const [todosData, setTodoData] = useState([]);
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
-      .then(response => response.json())
-      .then(res => setTodoData(res))
-      .catch(error => console.error("Error fetching data:", error));
-  }, []);
-
-  function confirmModal(id) {
-    setTodoData(todosData.filter((item) => item.id !== id))
-  }
-
   return (
     <div>
-      <h1 className="todos">My Todos</h1>
+      <Header />
 
-      <div className="todosBody">
-        {todosData.map(todo => (
-          <Todo key={todo.id} data={todo} confirmModal={confirmModal} />
-        ))}
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/completed-todo" element={<CompletedTodo />} />
+      </Routes>
     </div>
   );
 }
